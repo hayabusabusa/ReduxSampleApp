@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.1)
+  - Hero (1.4.0)
   - Moya (12.0.1):
     - Moya/Core (= 12.0.1)
   - Moya/Core (12.0.1):
@@ -7,24 +8,41 @@ PODS:
     - Result (~> 4.0)
   - Result (4.1.0)
   - ReSwift (4.0.1)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
 
 DEPENDENCIES:
+  - Hero
   - Moya
   - ReSwift
+  - RxCocoa
+  - RxSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Hero
     - Moya
     - Result
     - ReSwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   Moya: cf730b3cd9e005401ef37a85143aa141a12fd38f
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
-PODFILE CHECKSUM: 7b744db121930c19dd75e4b38a06a74adde3624b
+PODFILE CHECKSUM: f2ff02d5121e97c8c6daeb3831ff5897bb251492
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.0

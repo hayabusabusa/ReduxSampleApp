@@ -6,7 +6,11 @@ target 'ReduxSampleApp' do
   use_frameworks!
 
   pod 'ReSwift'
+  pod 'RxSwift'
+  pod 'RxCocoa'
   pod 'Moya'
+
+  pod 'Hero'
 
   # Pods for ReduxSampleApp
 
