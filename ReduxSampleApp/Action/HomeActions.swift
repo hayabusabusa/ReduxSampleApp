@@ -19,8 +19,9 @@ extension HomeState {
         static func generateRandomHex() -> ReSwift.Store<AppState>.ActionCreator {
             return { (state, store) in
                 guard let requestHex = state.homeState.requestHex else {
-                    return createHex(hexString: String(Int.random(in: 0 ..< 65535), radix: 16))
+                    return createHex(hexString: String(Int.random(in: 0 ..< 16777215), radix: 16))
                 }
+                print(requestHex)
                 return createHex(hexString: requestHex)
             }
         }
@@ -28,7 +29,7 @@ extension HomeState {
         static func fetchColorsActionCreator() -> ReSwift.Store<AppState>.ActionCreator {
             return { (state, store) in
                 let provider = MoyaAPIFactory.shared
-                provider.request(.getColors(GetColorsParams(hex: state.homeState.requestHex!, count: 30, mode: "complement"))) { result in
+                provider.request(.getColors(GetColorsParams(hex: state.homeState.requestHex!, count: 30, mode: "analogic"))) { result in
                     if let error = result.error {
                         store.dispatch(HomeState.Action.requestError(error: error))
                     }

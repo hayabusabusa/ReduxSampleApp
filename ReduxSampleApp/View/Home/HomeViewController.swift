@@ -47,7 +47,7 @@ extension HomeViewController {
     
     func setupUI() {
         // Navigation
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Montserrat", size: 20) ?? UIFont.systemFont(ofSize: 5)]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Montserrat-bold", size: 20) ?? UIFont.systemFont(ofSize: 5)]
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         navigationItem.title = "Palette"
         

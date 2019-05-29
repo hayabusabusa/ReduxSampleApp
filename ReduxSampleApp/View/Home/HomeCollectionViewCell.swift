@@ -24,6 +24,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
 
     func setupCell(color: ColorEntity) {
-        colorView.backgroundColor = UIColor(hex: color.hex.value)
+        colorView.backgroundColor = UIColor(hex: color.hex.clean)
     }
 }

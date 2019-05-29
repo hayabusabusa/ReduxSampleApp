@@ -38,7 +38,7 @@ extension ColorDetailViewController {
         
         // UI
         mainColorView.hero.id = heroId
-        mainColorView.backgroundColor = UIColor(hex: color.hex.value)
+        mainColorView.backgroundColor = UIColor(hex: color.hex.clean)
         mainTitleLabel.text = color.name.value
         titleLabel.text = color.name.value
         redLabel.text = "\(color.rgb.r)"
