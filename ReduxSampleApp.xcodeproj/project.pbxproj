@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -52,6 +52,7 @@
 		A4DF04FB229E4CCC00BBD0C7 /* MontserratAlternates-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A4DF04E9229E4CCB00BBD0C7 /* MontserratAlternates-Regular.otf */; };
 		A4DF04FC229E4CCC00BBD0C7 /* Montserrat-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A4DF04EA229E4CCB00BBD0C7 /* Montserrat-Light.otf */; };
 		A4DF04FD229E4CCC00BBD0C7 /* Montserrat-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = A4DF04EB229E4CCC00BBD0C7 /* Montserrat-ExtraLight.otf */; };
+		A4DF04FF229E8AD200BBD0C7 /* GetColorsParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF04FE229E8AD200BBD0C7 /* GetColorsParams.swift */; };
 		E6A400A684F59C4833A85C37 /* Pods_ReduxSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21943964A1DD4DD05357AEFC /* Pods_ReduxSampleApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		A4DF04E9229E4CCB00BBD0C7 /* MontserratAlternates-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Regular.otf"; sourceTree = "<group>"; };
 		A4DF04EA229E4CCB00BBD0C7 /* Montserrat-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.otf"; sourceTree = "<group>"; };
 		A4DF04EB229E4CCC00BBD0C7 /* Montserrat-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.otf"; sourceTree = "<group>"; };
+		A4DF04FE229E8AD200BBD0C7 /* GetColorsParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetColorsParams.swift; sourceTree = "<group>"; };
 		D4E9EBE4D2CAFF43D61DDCA9 /* Pods-ReduxSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-ReduxSampleApp/Pods-ReduxSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				A4DF04CB229E20D600BBD0C7 /* TestParams.swift */,
+				A4DF04FE229E8AD200BBD0C7 /* GetColorsParams.swift */,
 			);
 			path = params;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				71F69752229D5EB200AEBBE2 /* Hex.swift in Sources */,
 				71F69746229D5D2200AEBBE2 /* AppState.swift in Sources */,
 				71F69750229D5EA200AEBBE2 /* Rgb.swift in Sources */,
+				A4DF04FF229E8AD200BBD0C7 /* GetColorsParams.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

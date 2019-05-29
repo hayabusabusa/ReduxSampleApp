@@ -27,6 +27,7 @@ final class HomeViewController: UIViewController, StoreSubscriber {
         appStore.subscribe(self) { subscription in
             subscription.select { state in state.homeState }
         }
+        appStore.dispatch(HomeState.Action.generateRandomHex())
         appStore.dispatch(HomeState.Action.fetchColorsActionCreator())
     }
     

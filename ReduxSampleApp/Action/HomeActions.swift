@@ -10,17 +10,25 @@ import ReSwift
 
 extension HomeState {
     enum Action: ReSwift.Action {
+        case createHex(hexString: String)
         case requestStart
         case requestSuccess(response: ColorsEntity)
         case requestError(error: Error)
         
         // Action craetor
+        static func generateRandomHex() -> ReSwift.Store<AppState>.ActionCreator {
+            return { (state, store) in
+                guard let requestHex = state.homeState.requestHex else {
+                    return createHex(hexString: String(Int.random(in: 0 ..< 65535), radix: 16))
+                }
+                return createHex(hexString: requestHex)
+            }
+        }
+        
         static func fetchColorsActionCreator() -> ReSwift.Store<AppState>.ActionCreator {
             return { (state, store) in
-                store.dispatch(HomeState.Action.requestStart)
-                
                 let provider = MoyaAPIFactory.shared
-                provider.request(.schemeTest(TestParams())) { result in
+                provider.request(.getColors(GetColorsParams(hex: state.homeState.requestHex!, count: 30, mode: "complement"))) { result in
                     if let error = result.error {
                         store.dispatch(HomeState.Action.requestError(error: error))
                     }
@@ -33,7 +41,7 @@ extension HomeState {
                         }
                     }
                 }
-                return nil
+                return requestStart
             }
         }
     }

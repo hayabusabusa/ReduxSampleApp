@@ -14,6 +14,8 @@ extension HomeState {
         
         guard let action = action as? HomeState.Action else { return state }
         switch action {
+        case .createHex(let hex):
+            state.requestHex = hex
         case .requestStart:
             state.isLoading = true
         case .requestSuccess(let response):

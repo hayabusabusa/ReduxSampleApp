@@ -10,5 +10,6 @@ import ReSwift
 
 struct HomeState: ReSwift.StateType {
     var isLoading: Bool = false
+    var requestHex: String?
     var colorList: ColorsEntity = ColorsEntity()
 }
