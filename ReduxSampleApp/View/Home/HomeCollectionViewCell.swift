@@ -21,7 +21,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        colorView.hero.id = "ColorView"
     }
 
     func setupCell(color: ColorEntity) {

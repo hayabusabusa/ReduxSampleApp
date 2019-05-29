@@ -21,6 +21,7 @@ final class ColorDetailViewController: UIViewController {
     @IBOutlet weak var monochromeStackView: UIStackView!
     
     var color: ColorEntity!
+    var heroId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +36,8 @@ extension ColorDetailViewController {
         // Naviagtion
         navigationItem.title = color.name.value
         
-        // Hero
-        hero.isEnabled = true
-        
         // UI
-        mainColorView.hero.id = "ColorView"
+        mainColorView.hero.id = heroId
         mainColorView.backgroundColor = UIColor(hex: color.hex.value)
         mainTitleLabel.text = color.name.value
         titleLabel.text = color.name.value

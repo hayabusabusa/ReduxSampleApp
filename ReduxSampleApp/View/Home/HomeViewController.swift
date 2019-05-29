@@ -50,6 +50,10 @@ extension HomeViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         navigationItem.title = "Palette"
         
+        // Hero
+        navigationController?.hero.isEnabled = true
+        collectionView.hero.modifiers = [.cascade]
+        
         // CollectionView
         let layout = UICollectionViewFlowLayout()
         let width = view.frame.width / 3.0 - 6.0
@@ -73,6 +77,7 @@ extension HomeViewController: UICollectionViewDelegate {
         
         if let vc = UIStoryboard(name: "ColorDetailViewController", bundle: nil).instantiateInitialViewController() as? ColorDetailViewController {
             vc.color = colorList.colors[indexPath.row]
+            vc.heroId = "ColorView\(indexPath.row)"
             navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -88,6 +93,8 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.cellReuseIdentifier, for: indexPath) as! HomeCollectionViewCell
         cell.setupCell(color: colorList.colors[indexPath.row])
+        cell.hero.modifiers = [.fade, .scale(0.5)]
+        cell.hero.id = "ColorView\(indexPath.row)"
         return cell
     }
 }
