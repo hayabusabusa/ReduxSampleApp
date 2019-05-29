@@ -47,6 +47,7 @@ extension HomeViewController {
     func setupUI() {
         // Navigation
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Montserrat", size: 20) ?? UIFont.systemFont(ofSize: 5)]
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         navigationItem.title = "Palette"
         
         // CollectionView
@@ -58,11 +59,26 @@ extension HomeViewController {
         layout.itemSize = CGSize(width: width, height: width)
         
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(HomeCollectionViewCell.nib, forCellWithReuseIdentifier: HomeCollectionViewCell.cellReuseIdentifier)
         collectionView.setCollectionViewLayout(layout, animated: false)
     }
 }
 
+// CollectionView delegate
+extension HomeViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        if let vc = UIStoryboard(name: "ColorDetailViewController", bundle: nil).instantiateInitialViewController() as? ColorDetailViewController {
+            vc.color = colorList.colors[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}
+
+// CollectionView dataSource
 extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

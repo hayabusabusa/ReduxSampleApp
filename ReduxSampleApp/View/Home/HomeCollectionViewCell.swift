@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class HomeCollectionViewCell: UICollectionViewCell {
     
@@ -20,7 +21,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        colorView.hero.id = "ColorView"
     }
 
     func setupCell(color: ColorEntity) {
