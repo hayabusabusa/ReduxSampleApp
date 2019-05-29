@@ -9,6 +9,6 @@
 import ReSwift
 
 struct AppState: ReSwift.StateType {
-    var homeState: HomeState
-    var colorDetailState: ColorDetailState
+    var homeState: HomeState = HomeState()
+    var colorDetailState: ColorDetailState = ColorDetailState()
 }
