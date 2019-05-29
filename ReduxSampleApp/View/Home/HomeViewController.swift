@@ -45,6 +45,10 @@ final class HomeViewController: UIViewController, StoreSubscriber {
 extension HomeViewController {
     
     func setupUI() {
+        // Navigation
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Montserrat", size: 20) ?? UIFont.systemFont(ofSize: 5)]
+        navigationItem.title = "Palette"
+        
         // CollectionView
         let layout = UICollectionViewFlowLayout()
         let width = view.frame.width / 3.0 - 6.0

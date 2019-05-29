@@ -13,7 +13,7 @@
         <!--Home View Controller-->
         <scene sceneID="qRd-f8-Qcn">
             <objects>
-                <viewController id="zvt-Qf-5Hx" customClass="HomeViewController" customModule="ReduxSampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="zvt-Qf-5Hx" customClass="HomeViewController" customModule="ReduxSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q0O-aX-XKJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
