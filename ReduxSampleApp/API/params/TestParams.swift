@@ -9,6 +9,7 @@
 import Foundation
 
 struct TestParams {
-    let hex: String = "hex=0047AB"
-    let count: Int = 10
+    let hex: String = "0047AB"
+    let count: Int = 30
+    let mode: String = "complement"
 }

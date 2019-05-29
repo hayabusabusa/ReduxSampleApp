@@ -47,7 +47,8 @@ extension MoyaApi: TargetType {
         case .schemeTest(let params):
             let parameter = [
                 "hex": params.hex,
-                "count": params.count
+                "count": params.count,
+                "mode": params.mode
             ] as [String: Any]
             return parameter
         }

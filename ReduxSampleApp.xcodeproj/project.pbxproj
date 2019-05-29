@@ -31,6 +31,9 @@
 		A4DF04C9229E1F4500BBD0C7 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF04C8229E1F4500BBD0C7 /* Configuration.swift */; };
 		A4DF04CC229E20D600BBD0C7 /* TestParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF04CB229E20D600BBD0C7 /* TestParams.swift */; };
 		A4DF04D0229E228300BBD0C7 /* MoyaAPIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF04CF229E228300BBD0C7 /* MoyaAPIFactory.swift */; };
+		A4DF04D3229E2AD500BBD0C7 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF04D1229E2AD500BBD0C7 /* HomeCollectionViewCell.swift */; };
+		A4DF04D4229E2AD500BBD0C7 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4DF04D2229E2AD500BBD0C7 /* HomeCollectionViewCell.xib */; };
+		A4DF04D7229E2D6600BBD0C7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF04D6229E2D6600BBD0C7 /* UIColor+Extension.swift */; };
 		E6A400A684F59C4833A85C37 /* Pods_ReduxSampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21943964A1DD4DD05357AEFC /* Pods_ReduxSampleApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +66,9 @@
 		A4DF04C8229E1F4500BBD0C7 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		A4DF04CB229E20D600BBD0C7 /* TestParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestParams.swift; sourceTree = "<group>"; };
 		A4DF04CF229E228300BBD0C7 /* MoyaAPIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaAPIFactory.swift; sourceTree = "<group>"; };
+		A4DF04D1229E2AD500BBD0C7 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		A4DF04D2229E2AD500BBD0C7 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		A4DF04D6229E2D6600BBD0C7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		D4E9EBE4D2CAFF43D61DDCA9 /* Pods-ReduxSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReduxSampleApp.debug.xcconfig"; path = "Target Support Files/Pods-ReduxSampleApp/Pods-ReduxSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +122,7 @@
 				71F69742229D5A0500AEBBE2 /* Action */,
 				A4DF04C1229E15F600BBD0C7 /* Reducer */,
 				71F69735229D58A400AEBBE2 /* View */,
+				A4DF04D5229E2D5200BBD0C7 /* Util */,
 				71F6972A229D535E00AEBBE2 /* Assets.xcassets */,
 				71F6972C229D535E00AEBBE2 /* LaunchScreen.storyboard */,
 				71F6972F229D535E00AEBBE2 /* Info.plist */,
@@ -137,6 +144,8 @@
 			children = (
 				71F69737229D58B800AEBBE2 /* HomeViewController.swift */,
 				71F69739229D58EB00AEBBE2 /* HomeViewController.storyboard */,
+				A4DF04D1229E2AD500BBD0C7 /* HomeCollectionViewCell.swift */,
+				A4DF04D2229E2AD500BBD0C7 /* HomeCollectionViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -209,6 +218,14 @@
 			path = params;
 			sourceTree = "<group>";
 		};
+		A4DF04D5229E2D5200BBD0C7 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A4DF04D6229E2D6600BBD0C7 /* UIColor+Extension.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		CCCFA098CE6D495E09D6673F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DF04D4229E2AD500BBD0C7 /* HomeCollectionViewCell.xib in Resources */,
 				71F6973A229D58EB00AEBBE2 /* HomeViewController.storyboard in Resources */,
 				71F6972E229D535E00AEBBE2 /* LaunchScreen.storyboard in Resources */,
 				71F6972B229D535E00AEBBE2 /* Assets.xcassets in Resources */,
@@ -347,6 +365,7 @@
 				71F69724229D535C00AEBBE2 /* AppDelegate.swift in Sources */,
 				71F69748229D5D3C00AEBBE2 /* HomeState.swift in Sources */,
 				A4DF04C7229E1EF600BBD0C7 /* MoyaApi.swift in Sources */,
+				A4DF04D7229E2D6600BBD0C7 /* UIColor+Extension.swift in Sources */,
 				71F69738229D58B800AEBBE2 /* HomeViewController.swift in Sources */,
 				A4DF04C3229E160800BBD0C7 /* AppReducer.swift in Sources */,
 				71F69756229D625700AEBBE2 /* ColorDetailState.swift in Sources */,
@@ -358,6 +377,7 @@
 				A4DF04CC229E20D600BBD0C7 /* TestParams.swift in Sources */,
 				71F6975A229D634A00AEBBE2 /* HomeActions.swift in Sources */,
 				71F6974E229D5E9400AEBBE2 /* ColorsEntity.swift in Sources */,
+				A4DF04D3229E2AD500BBD0C7 /* HomeCollectionViewCell.swift in Sources */,
 				71F6974C229D5E3E00AEBBE2 /* ColorEntity.swift in Sources */,
 				A4DF04D0229E228300BBD0C7 /* MoyaAPIFactory.swift in Sources */,
 				A4DF04C9229E1F4500BBD0C7 /* Configuration.swift in Sources */,
