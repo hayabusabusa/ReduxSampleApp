@@ -28,17 +28,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
+        dispatch(GlobalState.Action.changeApplicationState(appState: .willResignActive))
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
+        dispatch(GlobalState.Action.changeApplicationState(appState: .didEnterBackground))
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
+        dispatch(GlobalState.Action.changeApplicationState(appState: .willEnterForeground))
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+        dispatch(GlobalState.Action.changeApplicationState(appState: .didBecomeActive))
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+        dispatch(GlobalState.Action.changeApplicationState(appState: .willTerminate))
+    }
+    
+    private func dispatch(_ action: ReSwift.Action) {
+        appStore.dispatch(action)
     }
 }
