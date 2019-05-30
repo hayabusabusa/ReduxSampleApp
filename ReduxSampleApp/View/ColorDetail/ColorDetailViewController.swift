@@ -32,6 +32,7 @@ final class ColorDetailViewController: UIViewController, StoreSubscriber {
         appStore.subscribe(self) { subscription in
             subscription.select { state in state.colorDetailState }
         }
+        appStore.dispatch(ColorDetailState.Action.fetchMonochromeColorsActionCreator())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,6 +42,11 @@ final class ColorDetailViewController: UIViewController, StoreSubscriber {
     
     func newState(state: ColorDetailState) {
         setupUI(color: state.color, heroId: state.heroId)
+        
+        if !state.monochromeColors.colors.isEmpty {
+            setupMonochrome(colors: state.monochromeColors)
+            monochromeStackView.isHidden = false
+        }
     }
 }
 
@@ -60,5 +66,15 @@ extension ColorDetailViewController {
         greenLabel.text = "\(color.rgb.g)"
         blueLabel.text = "\(color.rgb.b)"
         hexLabel.text = color.hex.value
+        monochromeStackView.isHidden = true
+    }
+    
+    func setupMonochrome(colors: ColorsEntity) {
+        monochromeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
+        colors.colors.forEach { color in
+            let view = UIView(frame: .zero)
+            view.backgroundColor = UIColor(hex: color.hex.clean)
+            self.monochromeStackView.addArrangedSubview(view)
+        }
     }
 }

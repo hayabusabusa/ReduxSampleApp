@@ -29,7 +29,7 @@ extension HomeState {
         static func fetchColorsActionCreator() -> ReSwift.Store<AppState>.ActionCreator {
             return { (state, store) in
                 let provider = MoyaAPIFactory.shared
-                provider.request(.getColors(GetColorsParams(hex: state.homeState.requestHex!, count: 30, mode: "analogic"))) { result in
+                provider.request(.getColors(with: GetColorsParams(hex: state.homeState.requestHex!, count: 30, mode: "analogic"))) { result in
                     if let error = result.error {
                         store.dispatch(HomeState.Action.requestError(error: error))
                     }

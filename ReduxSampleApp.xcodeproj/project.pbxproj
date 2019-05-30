@@ -26,6 +26,7 @@
 		71F6975A229D634A00AEBBE2 /* HomeActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F69759229D634A00AEBBE2 /* HomeActions.swift */; };
 		71F6975C229D678000AEBBE2 /* ColorDetailActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F6975B229D678000AEBBE2 /* ColorDetailActions.swift */; };
 		A4BE46B1229F64DB002D0299 /* ColorDetailReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BE46B0229F64DB002D0299 /* ColorDetailReducer.swift */; };
+		A4BE46B5229F7563002D0299 /* GetColorMonochromeParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BE46B4229F7563002D0299 /* GetColorMonochromeParams.swift */; };
 		A4DF04C3229E160800BBD0C7 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF04C2229E160800BBD0C7 /* AppReducer.swift */; };
 		A4DF04C5229E162000BBD0C7 /* HomeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF04C4229E162000BBD0C7 /* HomeReducer.swift */; };
 		A4DF04C7229E1EF600BBD0C7 /* MoyaApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DF04C6229E1EF600BBD0C7 /* MoyaApi.swift */; };
@@ -81,6 +82,7 @@
 		71F69759229D634A00AEBBE2 /* HomeActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeActions.swift; sourceTree = "<group>"; };
 		71F6975B229D678000AEBBE2 /* ColorDetailActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailActions.swift; sourceTree = "<group>"; };
 		A4BE46B0229F64DB002D0299 /* ColorDetailReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorDetailReducer.swift; sourceTree = "<group>"; };
+		A4BE46B4229F7563002D0299 /* GetColorMonochromeParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetColorMonochromeParams.swift; sourceTree = "<group>"; };
 		A4DF04C2229E160800BBD0C7 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		A4DF04C4229E162000BBD0C7 /* HomeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReducer.swift; sourceTree = "<group>"; };
 		A4DF04C6229E1EF600BBD0C7 /* MoyaApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoyaApi.swift; path = ReduxSampleApp/Reducer/MoyaApi.swift; sourceTree = SOURCE_ROOT; };
@@ -257,6 +259,7 @@
 			children = (
 				A4DF04CB229E20D600BBD0C7 /* TestParams.swift */,
 				A4DF04FE229E8AD200BBD0C7 /* GetColorsParams.swift */,
+				A4BE46B4229F7563002D0299 /* GetColorMonochromeParams.swift */,
 			);
 			path = params;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				71F6975A229D634A00AEBBE2 /* HomeActions.swift in Sources */,
 				71F6974E229D5E9400AEBBE2 /* ColorsEntity.swift in Sources */,
 				A4DF04D3229E2AD500BBD0C7 /* HomeCollectionViewCell.swift in Sources */,
+				A4BE46B5229F7563002D0299 /* GetColorMonochromeParams.swift in Sources */,
 				71F6974C229D5E3E00AEBBE2 /* ColorEntity.swift in Sources */,
 				A4DF04D0229E228300BBD0C7 /* MoyaAPIFactory.swift in Sources */,
 				A4DF04C9229E1F4500BBD0C7 /* Configuration.swift in Sources */,

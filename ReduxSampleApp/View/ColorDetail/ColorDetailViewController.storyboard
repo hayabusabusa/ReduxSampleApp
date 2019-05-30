@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Muc-Pa-ggX">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="826"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="782"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lN3-Nj-sMS" userLabel="Layout Header">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
@@ -264,12 +264,12 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Foo-Oe-lyH" userLabel="Layout Monochrome">
-                                                <rect key="frame" x="0.0" y="646" width="414" height="180"/>
+                                                <rect key="frame" x="0.0" y="646" width="414" height="136"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="U3M-B4-4ud">
-                                                        <rect key="frame" x="16" y="56" width="382" height="108"/>
+                                                        <rect key="frame" x="16" y="56" width="382" height="64"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="108" id="bbk-s5-w9D"/>
+                                                            <constraint firstAttribute="height" constant="64" id="bbk-s5-w9D"/>
                                                         </constraints>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monochrome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOA-aj-sJs">

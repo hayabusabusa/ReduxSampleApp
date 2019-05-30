@@ -9,8 +9,9 @@
 import Moya
 
 enum MoyaApi {
-    case schemeTest(TestParams)
-    case getColors(GetColorsParams)
+    case schemeTest(with: TestParams)
+    case getColors(with: GetColorsParams)
+    case getColorMonochrome(with: GetColorMonochromeParams)
 }
 
 extension MoyaApi: TargetType {
@@ -28,12 +29,14 @@ extension MoyaApi: TargetType {
             return "/scheme"
         case .getColors:
             return "/scheme"
+        case .getColorMonochrome:
+            return "/scheme"
         }
     }
     
     var method: Method {
         switch self {
-        case .schemeTest, .getColors:
+        case .schemeTest, .getColors, .getColorMonochrome:
             return .get
         }
     }
@@ -61,19 +64,26 @@ extension MoyaApi: TargetType {
                 "mode": params.mode
             ] as [String: Any]
             return parameters
+        case .getColorMonochrome(let params):
+            let parameters = [
+                "hex": params.hex,
+                "count": params.count,
+                "mode": params.mode
+            ] as [String: Any]
+            return parameters
         }
     }
     
     var parameterEncoding: ParameterEncoding {
         switch self {
-        case .schemeTest, .getColors:
+        case .schemeTest, .getColors, .getColorMonochrome:
             return Moya.URLEncoding.queryString
         }
     }
     
     var task: Task {
         switch self {
-        case .schemeTest, .getColors:
+        case .schemeTest, .getColors, .getColorMonochrome:
             return .requestParameters(parameters: parameters, encoding: parameterEncoding)
         }
     }
