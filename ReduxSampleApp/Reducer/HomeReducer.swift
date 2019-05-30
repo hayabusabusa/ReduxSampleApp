@@ -21,9 +21,8 @@ extension HomeState {
         case .requestSuccess(let response):
             state.request = .success
             state.colorList = response
-        case .requestError(let error):
+        case .requestError:
             state.request = .error
-            print(error.localizedDescription)
         }
         return state
     }

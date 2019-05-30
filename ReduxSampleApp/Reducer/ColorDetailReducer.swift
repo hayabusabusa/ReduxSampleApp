@@ -22,9 +22,8 @@ extension ColorDetailState {
         case .requestSuccess(let response):
             state.request = .success
             state.monochromeColors = response
-        case .requestError(let error):
+        case .requestError:
             state.request = .error
-            print(error.localizedDescription)
         }
         return state
     }

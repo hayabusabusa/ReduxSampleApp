@@ -8,6 +8,7 @@
 
 import UIKit
 import ReSwift
+import JGProgressHUD
 
 final class HomeViewController: UIViewController, StoreSubscriber {
     
@@ -15,6 +16,7 @@ final class HomeViewController: UIViewController, StoreSubscriber {
     
     typealias StoreSubscriberStateType = HomeState
     
+    private var progressHud: JGProgressHUD!
     private var colorList: ColorsEntity = .init()
     
     override func viewDidLoad() {
@@ -37,8 +39,19 @@ final class HomeViewController: UIViewController, StoreSubscriber {
     }
     
     func newState(state: HomeState) {
-        colorList = state.colorList
-        collectionView.reloadData()
+        switch state.request {
+        case .loading:
+            showLoading()
+        case .success:
+            hideLoading()
+            colorList = state.colorList
+            collectionView.reloadData()
+        case .error:
+            hideLoading()
+            showError(message: "Something wrong")
+        default:
+            break
+        }
     }
 }
 
@@ -68,6 +81,31 @@ extension HomeViewController {
         collectionView.delegate = self
         collectionView.register(HomeCollectionViewCell.nib, forCellWithReuseIdentifier: HomeCollectionViewCell.cellReuseIdentifier)
         collectionView.setCollectionViewLayout(layout, animated: false)
+    }
+    
+    func showLoading() {
+        if progressHud == nil {
+            progressHud = JGProgressHUD(style: .dark)
+            progressHud.textLabel.text = "Loading"
+            progressHud.show(in: self.view)
+        }
+    }
+    
+    func hideLoading() {
+        if progressHud != nil {
+            progressHud.dismiss(afterDelay: 0.5)
+            progressHud = nil
+        }
+    }
+    
+    func showError(message: String) {
+        if progressHud == nil {
+            progressHud = JGProgressHUD(style: .dark)
+            progressHud.textLabel.text = "Error"
+            progressHud.detailTextLabel.text = message
+            progressHud.show(in: self.view)
+            progressHud.dismiss(afterDelay: 3.0)
+        }
     }
 }
 
