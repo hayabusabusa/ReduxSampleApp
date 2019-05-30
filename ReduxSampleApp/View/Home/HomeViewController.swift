@@ -17,6 +17,7 @@ final class HomeViewController: UIViewController, StoreSubscriber {
     typealias StoreSubscriberStateType = HomeState
     
     private var progressHud: JGProgressHUD!
+    private var refreshControl: UIRefreshControl!
     private var colorList: ColorsEntity = .init()
     
     override func viewDidLoad() {
@@ -44,10 +45,12 @@ final class HomeViewController: UIViewController, StoreSubscriber {
             showLoading()
         case .success:
             hideLoading()
+            refreshControl.endRefreshing()
             colorList = state.colorList
             collectionView.reloadData()
         case .error:
             hideLoading()
+            refreshControl.endRefreshing()
             showError(message: "Something wrong")
         default:
             break
@@ -81,6 +84,11 @@ extension HomeViewController {
         collectionView.delegate = self
         collectionView.register(HomeCollectionViewCell.nib, forCellWithReuseIdentifier: HomeCollectionViewCell.cellReuseIdentifier)
         collectionView.setCollectionViewLayout(layout, animated: false)
+        
+        // RefreshControl
+        refreshControl = UIRefreshControl()
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
     func showLoading() {
@@ -135,5 +143,14 @@ extension HomeViewController: UICollectionViewDataSource {
         cell.hero.modifiers = [.fade, .scale(0.5)]
         cell.hero.id = "ColorView\(indexPath.row)"
         return cell
+    }
+}
+
+// RefreshControl
+extension HomeViewController {
+    
+    @objc func refresh() {
+        appStore.dispatch(HomeState.Action.refreshHexActionCreator())
+        appStore.dispatch(HomeState.Action.fetchColorsActionCreator())
     }
 }

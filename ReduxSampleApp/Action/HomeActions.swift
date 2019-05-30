@@ -14,6 +14,7 @@ extension HomeState {
         case requestStart
         case requestSuccess(response: ColorsEntity)
         case requestError(error: Error)
+        case refresh(hexString: String)
         
         // Action craetor
         static func generateRandomHex() -> ReSwift.Store<AppState>.ActionCreator {
@@ -44,6 +45,12 @@ extension HomeState {
                     }
                 }
                 return requestStart
+            }
+        }
+        
+        static func refreshHexActionCreator() -> ReSwift.Store<AppState>.ActionCreator {
+            return { (state, store) in
+                return refresh(hexString: String(Int.random(in: 0 ..< 16777215), radix: 16))
             }
         }
     }

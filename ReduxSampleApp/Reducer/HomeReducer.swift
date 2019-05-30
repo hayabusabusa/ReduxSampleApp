@@ -23,6 +23,9 @@ extension HomeState {
             state.colorList = response
         case .requestError:
             state.request = .error
+        case .refresh(let hex):
+            state.requestHex = hex
+            state.request = .initial
         }
         return state
     }
