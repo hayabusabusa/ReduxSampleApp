@@ -10,4 +10,5 @@ import ReSwift
 
 struct ColorDetailState: ReSwift.StateType {
     var color: ColorEntity = ColorEntity()
+    var heroId: String = ""
 }

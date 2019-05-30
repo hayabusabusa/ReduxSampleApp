@@ -53,6 +53,7 @@ extension HomeViewController {
         
         // Hero
         navigationController?.hero.isEnabled = true
+        navigationController?.hero.navigationAnimationType = .fade
         collectionView.hero.modifiers = [.cascade]
         
         // CollectionView
@@ -76,11 +77,10 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        if let vc = UIStoryboard(name: "ColorDetailViewController", bundle: nil).instantiateInitialViewController() as? ColorDetailViewController {
-            vc.color = colorList.colors[indexPath.row]
-            vc.heroId = "ColorView\(indexPath.row)"
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        appStore.dispatch(ColorDetailState.Action.setColor(color: colorList.colors[indexPath.row], heroId: "ColorView\(indexPath.row)"))
+        
+        let vc = UIStoryboard(name: "ColorDetailViewController", bundle: nil).instantiateInitialViewController() ?? UIViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

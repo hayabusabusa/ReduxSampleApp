@@ -11,6 +11,6 @@ import ReSwift
 func appReducer(action: ReSwift.Action, state: AppState?) -> AppState {
     var state = state ?? AppState()
     state.homeState = HomeState.reducer(action: action, state: state.homeState)
-    // state.colorDetailState = ?
+    state.colorDetailState = ColorDetailState.reducer(action: action, state: state.colorDetailState)
     return state
 }

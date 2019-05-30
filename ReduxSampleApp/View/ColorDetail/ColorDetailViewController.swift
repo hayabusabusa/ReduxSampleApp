@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import ReSwift
 import Hero
 
-final class ColorDetailViewController: UIViewController {
+final class ColorDetailViewController: UIViewController, StoreSubscriber {
+    
+    typealias StoreSubscriberStateType = ColorDetailState
     
     @IBOutlet weak var mainColorView: UIView!
     @IBOutlet weak var mainTitleLabel: UILabel!
@@ -20,19 +23,31 @@ final class ColorDetailViewController: UIViewController {
     @IBOutlet weak var hexLabel: UILabel!
     @IBOutlet weak var monochromeStackView: UIStackView!
     
-    var color: ColorEntity!
-    var heroId: String!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        appStore.subscribe(self) { subscription in
+            subscription.select { state in state.colorDetailState }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        appStore.unsubscribe(self)
+    }
+    
+    func newState(state: ColorDetailState) {
+        setupUI(color: state.color, heroId: state.heroId)
     }
 }
 
 // UI
 extension ColorDetailViewController {
     
-    func setupUI() {
+    func setupUI(color: ColorEntity, heroId: String) {
         // Naviagtion
         navigationItem.title = color.name.value
         
@@ -45,6 +60,5 @@ extension ColorDetailViewController {
         greenLabel.text = "\(color.rgb.g)"
         blueLabel.text = "\(color.rgb.b)"
         hexLabel.text = color.hex.value
-        
     }
 }

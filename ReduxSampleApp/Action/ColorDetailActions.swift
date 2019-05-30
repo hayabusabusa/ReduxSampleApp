@@ -9,4 +9,7 @@
 import ReSwift
 
 extension ColorDetailState {
+    enum Action: ReSwift.Action {
+        case setColor(color: ColorEntity, heroId: String)
+    }
 }
