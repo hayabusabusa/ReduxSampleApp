@@ -9,7 +9,14 @@
 import ReSwift
 
 struct HomeState: ReSwift.StateType {
-    var isLoading: Bool = false
     var requestHex: String?
+    
+    enum RequestState {
+        case initial
+        case loading
+        case success
+        case error
+    }
+    var request: RequestState = .initial
     var colorList: ColorsEntity = ColorsEntity()
 }

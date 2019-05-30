@@ -21,15 +21,16 @@ extension HomeState {
                 guard let requestHex = state.homeState.requestHex else {
                     return createHex(hexString: String(Int.random(in: 0 ..< 16777215), radix: 16))
                 }
-                print(requestHex)
                 return createHex(hexString: requestHex)
             }
         }
         
         static func fetchColorsActionCreator() -> ReSwift.Store<AppState>.ActionCreator {
             return { (state, store) in
-                let provider = MoyaAPIFactory.shared
-                provider.request(.getColors(with: GetColorsParams(hex: state.homeState.requestHex!, count: 30, mode: "analogic"))) { result in
+                guard state.homeState.request != HomeState.RequestState.success else { return nil }
+                
+                MoyaAPIFactory.shared
+                    .request(.getColors(with: GetColorsParams(hex: state.homeState.requestHex!, count: 30, mode: "analogic"))) { result in
                     if let error = result.error {
                         store.dispatch(HomeState.Action.requestError(error: error))
                     }

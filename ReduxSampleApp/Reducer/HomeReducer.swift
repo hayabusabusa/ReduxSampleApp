@@ -17,12 +17,12 @@ extension HomeState {
         case .createHex(let hex):
             state.requestHex = hex
         case .requestStart:
-            state.isLoading = true
+            state.request = .loading
         case .requestSuccess(let response):
-            state.isLoading = false
+            state.request = .success
             state.colorList = response
         case .requestError(let error):
-            state.isLoading = false
+            state.request = .error
             print(error.localizedDescription)
         }
         return state

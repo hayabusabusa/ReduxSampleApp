@@ -41,11 +41,18 @@ final class ColorDetailViewController: UIViewController, StoreSubscriber {
     }
     
     func newState(state: ColorDetailState) {
-        setupUI(color: state.color, heroId: state.heroId)
-        
-        if !state.monochromeColors.colors.isEmpty {
-            setupMonochrome(colors: state.monochromeColors)
-            monochromeStackView.isHidden = false
+        switch state.request {
+        case .initial:
+            break
+        case .loading:
+            resetUI()
+        case .success:
+            updateUI(color: state.color, heroId: state.heroId)
+            if !state.monochromeColors.colors.isEmpty {
+                setupMonochrome(colors: state.monochromeColors)
+            }
+        case .error:
+            break
         }
     }
 }
@@ -53,7 +60,7 @@ final class ColorDetailViewController: UIViewController, StoreSubscriber {
 // UI
 extension ColorDetailViewController {
     
-    func setupUI(color: ColorEntity, heroId: String) {
+    func updateUI(color: ColorEntity, heroId: String) {
         // Naviagtion
         navigationItem.title = color.name.value
         
@@ -66,15 +73,24 @@ extension ColorDetailViewController {
         greenLabel.text = "\(color.rgb.g)"
         blueLabel.text = "\(color.rgb.b)"
         hexLabel.text = color.hex.value
-        monochromeStackView.isHidden = true
+    }
+    
+    func resetUI() {
+        monochromeStackView.alpha = 0
+        monochromeStackView.superview?.isHidden = true
+        monochromeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
     }
     
     func setupMonochrome(colors: ColorsEntity) {
-        monochromeStackView.arrangedSubviews.forEach({ $0.removeFromSuperview() })
+        self.monochromeStackView.superview?.isHidden = false
         colors.colors.forEach { color in
             let view = UIView(frame: .zero)
             view.backgroundColor = UIColor(hex: color.hex.clean)
             self.monochromeStackView.addArrangedSubview(view)
+        }
+        
+        UIView.animate(withDuration: 0.5) {
+            self.monochromeStackView.alpha = 1.0
         }
     }
 }

@@ -9,8 +9,16 @@
 import ReSwift
 
 struct ColorDetailState: ReSwift.StateType {
+    var heroId: String = ""
+    
+    enum RequestState {
+        case initial
+        case loading
+        case success
+        case error
+    }
+    var request: RequestState = .initial
+    
     var color: ColorEntity = ColorEntity()
     var monochromeColors: ColorsEntity = ColorsEntity()
-    var isLoading: Bool = false
-    var heroId: String = ""
 }
