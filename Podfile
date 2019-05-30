@@ -5,12 +5,17 @@ target 'ReduxSampleApp' do
   inhibit_all_warnings!
   use_frameworks!
 
+  # Logic
   pod 'ReSwift'
   pod 'RxSwift'
   pod 'RxCocoa'
+
+  # Network
   pod 'Moya'
 
+  # UI
   pod 'Hero'
+  pod 'JGProgressHUD'
 
   # Pods for ReduxSampleApp
 
