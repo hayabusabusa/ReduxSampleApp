@@ -25,6 +25,10 @@ final class ColorDetailViewController: UIViewController, StoreSubscriber {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetUI()
+        
+        appStore.dispatch(ColorDetailState.Action.updateViewState(viewState: .idle))
+        appStore.dispatch(ColorDetailState.Action.fetchMonochromeColorsActionCreator())
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,7 +36,6 @@ final class ColorDetailViewController: UIViewController, StoreSubscriber {
         appStore.subscribe(self) { subscription in
             subscription.select { state in state.colorDetailState }
         }
-        appStore.dispatch(ColorDetailState.Action.fetchMonochromeColorsActionCreator())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,17 +44,16 @@ final class ColorDetailViewController: UIViewController, StoreSubscriber {
     }
     
     func newState(state: ColorDetailState) {
-        switch state.request {
-        case .initial:
-            break
+        switch state.viewState {
         case .loading:
-            resetUI()
-        case .success:
+            print("Now loading")
+        case .update:
             updateUI(color: state.color, heroId: state.heroId)
-            if !state.monochromeColors.colors.isEmpty {
-                setupMonochrome(colors: state.monochromeColors)
-            }
-        case .error:
+            setupMonochrome(colors: state.monochromeColors)
+            appStore.dispatch(ColorDetailState.Action.updateViewState(viewState: .show))
+        case .error(let error):
+            print(error)
+        default:
             break
         }
     }
@@ -82,7 +84,9 @@ extension ColorDetailViewController {
     }
     
     func setupMonochrome(colors: ColorsEntity) {
-        self.monochromeStackView.superview?.isHidden = false
+        guard !colors.colors.isEmpty else { return }
+        
+        monochromeStackView.superview?.isHidden = false
         colors.colors.forEach { color in
             let view = UIView(frame: .zero)
             view.backgroundColor = UIColor(hex: color.hex.clean)

@@ -11,12 +11,14 @@ import ReSwift
 extension ColorDetailState {
     enum Action: ReSwift.Action {
         case setColor(color: ColorEntity, heroId: String)
+        case updateViewState(viewState: ViewState)
         case requestStart
         case requestSuccess(response: ColorsEntity)
         case requestError(error: Error)
         
         static func fetchMonochromeColorsActionCreator() -> ReSwift.Store<AppState>.ActionCreator {
             return { (state, store) in
+                guard case .idle = state.colorDetailState.viewState else { return nil }
                 MoyaAPIFactory.shared
                     .request(.getColorMonochrome(with: GetColorMonochromeParams(hex: state.colorDetailState.color.hex.clean, count: 5, mode: "monochrome"))) { result in
                     if let error = result.error {

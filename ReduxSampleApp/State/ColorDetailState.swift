@@ -9,16 +9,16 @@
 import ReSwift
 
 struct ColorDetailState: ReSwift.StateType {
-    var heroId: String = ""
-    
-    enum RequestState {
-        case initial
+    enum ViewState {
+        case show
         case loading
-        case success
-        case error
+        case update
+        case error(error: Error)
+        case idle
     }
-    var request: RequestState = .initial
+    var viewState: ViewState = .idle
     
+    var heroId: String = ""
     var color: ColorEntity = ColorEntity()
     var monochromeColors: ColorsEntity = ColorsEntity()
 }

@@ -17,13 +17,15 @@ extension ColorDetailState {
         case .setColor(let color, let heroId):
             state.color = color
             state.heroId = heroId
+        case .updateViewState(let viewState):
+            state.viewState = viewState
         case .requestStart:
-            state.request = .loading
+            state.viewState = .loading
         case .requestSuccess(let response):
-            state.request = .success
+            state.viewState = .update
             state.monochromeColors = response
-        case .requestError:
-            state.request = .error
+        case .requestError(let err):
+            state.viewState = .error(error: err)
         }
         return state
     }
