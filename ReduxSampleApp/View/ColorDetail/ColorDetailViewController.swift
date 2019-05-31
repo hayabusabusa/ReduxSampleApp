@@ -80,8 +80,6 @@ extension ColorDetailViewController {
         greenLabel.text = "\(color.rgb.g)"
         blueLabel.text = "\(color.rgb.b)"
         hexLabel.text = color.hex.value
-        addFavoriteButton.setTitle(color.isFavorite ? "Delete favorite" : "Add favorite", for: .normal)
-        addFavoriteButton.titleLabel?.textColor = UIColor(hex: color.hex.clean)
     }
     
     func resetUI() {
