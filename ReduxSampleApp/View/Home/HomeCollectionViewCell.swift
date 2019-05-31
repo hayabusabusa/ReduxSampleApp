@@ -18,6 +18,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     static let cellReuseIdentifier = "HomeCollectionViewCell"
 
     @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var favoriteImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,5 +26,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
 
     func setupCell(color: ColorEntity) {
         colorView.backgroundColor = UIColor(hex: color.hex.clean)
+        favoriteImageView.isHidden = !color.isFavorite
     }
 }

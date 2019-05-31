@@ -23,14 +23,14 @@
             <objects>
                 <viewController id="zNb-1r-Pyy" customClass="ColorDetailViewController" customModule="ReduxSampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j9J-Qg-bTs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="950"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xXx-hI-kWD">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="872"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Muc-Pa-ggX">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="782"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="864"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lN3-Nj-sMS" userLabel="Layout Header">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
@@ -278,16 +278,52 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drc-ca-fJv" userLabel="Line View">
+                                                        <rect key="frame" x="16" y="135" width="382" height="1"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="gXR-KK-cMW"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="drc-ca-fJv" secondAttribute="bottom" id="4ZV-tO-rfW"/>
                                                     <constraint firstItem="U3M-B4-4ud" firstAttribute="leading" secondItem="Foo-Oe-lyH" secondAttribute="leading" constant="16" id="Opt-6C-4Tc"/>
                                                     <constraint firstItem="xOA-aj-sJs" firstAttribute="leading" secondItem="Foo-Oe-lyH" secondAttribute="leading" constant="16" id="Q29-6e-DNP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="drc-ca-fJv" secondAttribute="trailing" constant="16" id="T4o-IE-LHV"/>
                                                     <constraint firstItem="xOA-aj-sJs" firstAttribute="top" secondItem="Foo-Oe-lyH" secondAttribute="top" constant="16" id="UHh-Ne-RcI"/>
                                                     <constraint firstAttribute="bottom" secondItem="U3M-B4-4ud" secondAttribute="bottom" constant="16" id="WG0-mj-pLZ"/>
                                                     <constraint firstAttribute="trailing" secondItem="U3M-B4-4ud" secondAttribute="trailing" constant="16" id="fTy-PD-yHG"/>
                                                     <constraint firstItem="U3M-B4-4ud" firstAttribute="top" secondItem="Foo-Oe-lyH" secondAttribute="top" constant="56" id="jpO-mu-oft"/>
                                                     <constraint firstAttribute="trailing" secondItem="xOA-aj-sJs" secondAttribute="trailing" constant="16" id="prw-6t-GD3"/>
+                                                    <constraint firstItem="drc-ca-fJv" firstAttribute="leading" secondItem="Foo-Oe-lyH" secondAttribute="leading" constant="16" id="s2K-1c-r08"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SVZ-ve-hMl" userLabel="Layout Favorite">
+                                                <rect key="frame" x="0.0" y="782" width="414" height="82"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARj-9j-XyW">
+                                                        <rect key="frame" x="16" y="16" width="382" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="GqH-dE-eDc"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
+                                                        <state key="normal" title="Add favorite">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tapFavoriteButton:" destination="zNb-1r-Pyy" eventType="touchUpInside" id="00V-hz-DyQ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="ARj-9j-XyW" secondAttribute="trailing" constant="16" id="33p-Un-qPa"/>
+                                                    <constraint firstItem="ARj-9j-XyW" firstAttribute="top" secondItem="SVZ-ve-hMl" secondAttribute="top" constant="16" id="6Nc-rS-Fb0"/>
+                                                    <constraint firstItem="ARj-9j-XyW" firstAttribute="leading" secondItem="SVZ-ve-hMl" secondAttribute="leading" constant="16" id="7YV-yL-emS"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ARj-9j-XyW" secondAttribute="bottom" constant="16" id="sex-Rj-7EL"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -312,7 +348,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="amI-DW-pK2"/>
                     </view>
+                    <size key="freeformSize" width="414" height="950"/>
                     <connections>
+                        <outlet property="addFavoriteButton" destination="ARj-9j-XyW" id="aXg-Eq-P4L"/>
                         <outlet property="blueLabel" destination="fEH-ed-7lU" id="0mI-2W-Wx1"/>
                         <outlet property="greenLabel" destination="w2i-Gx-kXf" id="twE-jF-fST"/>
                         <outlet property="hexLabel" destination="49f-lq-cUf" id="4DU-ar-8pn"/>

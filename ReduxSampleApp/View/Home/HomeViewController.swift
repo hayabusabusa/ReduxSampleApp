@@ -18,7 +18,12 @@ final class HomeViewController: UIViewController, StoreSubscriber {
     
     private var progressHud: JGProgressHUD!
     private var refreshControl: UIRefreshControl!
-    private var colorList: ColorsEntity = .init()
+    private var colorList: ColorsEntity = .init() {
+        didSet {
+            refreshControl.endRefreshing()
+            collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +50,7 @@ final class HomeViewController: UIViewController, StoreSubscriber {
             showLoading()
         case .success:
             hideLoading()
-            refreshControl.endRefreshing()
             colorList = state.colorList
-            collectionView.reloadData()
         case .error:
             hideLoading()
             refreshControl.endRefreshing()

@@ -26,6 +26,9 @@ extension HomeState {
         case .refresh(let hex):
             state.requestHex = hex
             state.request = .initial
+        case .updateFavorite(let colors):
+            state.request = .success
+            state.colorList = colors
         }
         return state
     }

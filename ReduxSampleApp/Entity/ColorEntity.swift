@@ -13,6 +13,8 @@ class ColorEntity: Decodable {
     let rgb: Rgb
     let name: Name
     
+    var isFavorite: Bool = false
+    
     private enum CodingKeys: String, CodingKey {
         case hex
         case rgb

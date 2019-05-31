@@ -15,6 +15,7 @@ extension HomeState {
         case requestSuccess(response: ColorsEntity)
         case requestError(error: Error)
         case refresh(hexString: String)
+        case updateFavorite(new: ColorsEntity)
         
         // Action craetor
         static func generateRandomHex() -> ReSwift.Store<AppState>.ActionCreator {
@@ -51,6 +52,16 @@ extension HomeState {
         static func refreshHexActionCreator() -> ReSwift.Store<AppState>.ActionCreator {
             return { (state, store) in
                 return refresh(hexString: String(Int.random(in: 0 ..< 16777215), radix: 16))
+            }
+        }
+        
+        static func updateFavoriteActionCreator() -> ReSwift.Store<AppState>.ActionCreator {
+            return { (state, store) in
+                guard let index = state.homeState.colorList.colors
+                    .firstIndex(where: { $0.hex.value == state.colorDetailState.color.hex.value }) else { return nil }
+                let colors = state.homeState.colorList
+                colors.colors[index].isFavorite.toggle()
+                return updateFavorite(new: colors)
             }
         }
     }

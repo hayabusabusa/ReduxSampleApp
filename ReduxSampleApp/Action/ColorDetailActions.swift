@@ -15,6 +15,7 @@ extension ColorDetailState {
         case requestStart
         case requestSuccess(response: ColorsEntity)
         case requestError(error: Error)
+        case toggleFavorite
         
         static func fetchMonochromeColorsActionCreator() -> ReSwift.Store<AppState>.ActionCreator {
             return { (state, store) in

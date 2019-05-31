@@ -26,6 +26,9 @@ extension ColorDetailState {
             state.monochromeColors = response
         case .requestError(let err):
             state.viewState = .error(error: err)
+        case .toggleFavorite:
+            state.color.isFavorite.toggle()
+            state.viewState = .update
         }
         return state
     }

@@ -22,6 +22,7 @@ final class ColorDetailViewController: UIViewController, StoreSubscriber {
     @IBOutlet weak var blueLabel: UILabel!
     @IBOutlet weak var hexLabel: UILabel!
     @IBOutlet weak var monochromeStackView: UIStackView!
+    @IBOutlet weak var addFavoriteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,10 @@ final class ColorDetailViewController: UIViewController, StoreSubscriber {
             break
         }
     }
+    
+    @IBAction func tapFavoriteButton(_ sender: Any) {
+        appStore.dispatch(HomeState.Action.updateFavoriteActionCreator())
+    }
 }
 
 // UI
@@ -75,6 +80,8 @@ extension ColorDetailViewController {
         greenLabel.text = "\(color.rgb.g)"
         blueLabel.text = "\(color.rgb.b)"
         hexLabel.text = color.hex.value
+        addFavoriteButton.setTitle(color.isFavorite ? "Delete favorite" : "Add favorite", for: .normal)
+        addFavoriteButton.titleLabel?.textColor = UIColor(hex: color.hex.clean)
     }
     
     func resetUI() {
